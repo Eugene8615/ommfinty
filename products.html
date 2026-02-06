@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Продукты — Omfinity</title>
+
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">
+    <img src="./img/logo.png" alt="Omfinity">
+  </div>
+  <nav class="nav">
+    <a href="index.html">Главная</a>
+    <a href="#">Продукты</a>
+    <a href="account.html">Аккаунт</a>
+    <a href="#">О нас</a>
+  </nav>
+</header>
+
+<section class="products">
+  <h1 class="section-title">Продукты</h1>
+
+  <div class="products-grid">
+ <div class="product-card premium"
+     data-title="Start"
+     data-image="/img/start-C3SmDjY- (1).png"
+     data-description="Базовый тариф с низким порогом входа — оптимален для начинающих инвесторов.">
+
+  <!-- Верх (изображение) -->
+  <div class="card-image">
+    <img src="./img/photo_2026-01-15_15-03-50.jpg" alt="Start">
+  </div>
+
+  <!-- Низ (контент) -->
+  <div class="card-body">
+    <h3>Start</h3>
+    <p class="desc">
+      Базовый тариф с минимальным порогом входа - идеальное решение для первых шагов в инвестициях и уверенного старта капитала.
+    </p>
+
+    <div class="badge">от 100$</div>
+
+    <div class="profit">Доходность 3% / нед</div>
+
+    <button class="btn-invest">Начать инвестировать</button>
+  </div>
+</div>
+
+ <div class="product-card premium"
+     data-title="COMFORT"
+     data-image="/img/start-C3SmDjY- (1).png"
+     data-description="Базовый тариф с низким порогом входа — оптимален для начинающих инвесторов.">
+
+  <!-- Верх (изображение) -->
+  <div class="card-image">
+    <img src="./img/photo_2026-01-13_18-32-08.jpg" alt="Start">
+  </div>
+
+  <!-- Низ (контент) -->
+  <div class="card-body">
+    <h3>Comfort</h3>
+    <p class="desc">
+        Инвестиционный формат для тех, кто уже понимает ценность стратегии, стабильности и системного подхода.    </p>
+
+    <div class="badge">Подходит для долгосрочных целей</div>
+
+    <div class="profit">Доходность 5% / нед</div>
+
+    <button class="btn-invest">Начать инвестировать</button>
+  </div>
+</div>
+
+ <div class="product-card premium"
+     data-title="Elite"
+     data-image="/img/start-C3SmDjY- (1).png"
+     data-description="Базовый тариф с низким порогом входа — оптимален для начинающих инвесторов.">
+
+  <!-- Верх (изображение) -->
+  <div class="card-image">
+    <img src="/img/photo_2026-01-13_18-32-09.jpg" alt="Start">
+  </div>
+
+  <!-- Низ (контент) -->
+  <div class="card-body">
+    <h3>Elite</h3>
+    <p class="desc">
+ELITE - инвестиции для тех, кто выбирает уровень выше стандартов и рассматривает капитал как инструмент стратегического развития.
+    <div class="badge">Персонализированная настройка</div>
+
+    <div class="profit">Доходность 8% / нед</div>
+
+    <button class="btn-invest">Начать инвестировать</button>
+  </div>
+</div>
+
+  </div>
+</section>
+
+<!-- Modal -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="modal-close">&times;</span>
+    <img id="modal-image" src="" alt="">
+    <h2 id="modal-title"></h2>
+    <p id="modal-description"></p>
+    <button class="btn primary">Начать инвестировать</button>
+  </div>
+</div>
+
+ <!-- Footer -->
+  <footer class="footer-main">
+
+    <div class="footer-container">
+
+    <!-- Левая колонка -->
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="./img/logo.png" alt="Omfinity">
+      </div>
+
+      <p class="footer-text">
+        Подключитесь к нашему Telegram-боту —<br>
+        только важное: обновления, анонсы,<br>
+        доступ к закрытым возможностям.
+      </p>
+
+      <p class="footer-email">support@omfinity.com</p>
+
+      <div class="footer-auth">
+        <button class="btn outline small">Войти</button>
+        <button class="btn primary small">Создать аккаунт</button>
+      </div>
+    </div>
+
+    <!-- Legal -->
+    <div class="footer-column">
+      <h4>Legal</h4>
+      <a href="#">Terms of use</a>
+      <a href="#">Privacy policy</a>
+
+      <div class="footer-support">
+        <a href="#" class="support-btn telegram">
+          Поддержка Telegram
+        </a>
+        <a href="#" class="support-btn whatsapp">
+          Поддержка WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- Company -->
+    <div class="footer-column">
+      <h4>Company</h4>
+      <a href="#">Продукты</a>
+      <a href="#">Кто мы?</a>
+      <a href="#">Преимущества</a>
+      <a href="#">FAQ</a>
+    </div>
+
+  </div>
+  </footer>
+
+<script src="./script.js"></script>
+</body>
+</html>
