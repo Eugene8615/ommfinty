@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Вход — Luxor Capital</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+<style>
+
+.auth-page{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#000;
+}
+
+.auth-box{
+width:420px;
+padding:50px;
+border-radius:24px;
+background:#050505;
+border:1px solid rgba(212,175,55,0.25);
+box-shadow:0 30px 80px rgba(0,0,0,0.8);
+}
+
+.auth-logo{
+text-align:center;
+margin-bottom:30px;
+}
+
+.auth-logo img{
+height:70px;
+}
+
+.auth-title{
+text-align:center;
+font-size:28px;
+margin-bottom:30px;
+background:linear-gradient(135deg,#f5d37b,#c9a23f);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.auth-input{
+width:100%;
+padding:14px;
+margin-bottom:16px;
+border-radius:12px;
+background:#000;
+border:1px solid rgba(255,255,255,0.15);
+color:#fff;
+font-size:14px;
+}
+
+.auth-input:focus{
+border-color:#d4af37;
+outline:none;
+}
+
+.auth-btn{
+width:100%;
+padding:14px;
+border-radius:12px;
+border:none;
+background:#d4af37;
+color:#000;
+font-weight:600;
+cursor:pointer;
+margin-top:10px;
+}
+
+.auth-btn:hover{
+background:#f5d37b;
+}
+
+.auth-footer{
+text-align:center;
+margin-top:20px;
+font-size:13px;
+color:#aaa;
+}
+
+.auth-footer a{
+color:#d4af37;
+text-decoration:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="auth-page">
+
+<div class="auth-box">
+
+<div class="auth-logo">
+<img src="./img/logo.jpg">
+</div>
+
+<h2 class="auth-title">Вход в аккаунт</h2>
+
+<form>
+
+<input class="auth-input" type="email" placeholder="Email">
+
+<input class="auth-input" type="password" placeholder="Пароль">
+
+<button class="auth-btn">Войти</button>
+
+</form>
+
+<div class="auth-footer">
+Нет аккаунта? <a href="register.html">Создать</a>
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
