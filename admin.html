@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OMFINITY Admin</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+body{
+margin:0;
+font-family:Montserrat;
+background:#050505;
+color:white;
+}
+
+/* LAYOUT */
+
+.admin-layout{
+display:flex;
+height:100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+width:240px;
+background:#000;
+border-right:1px solid rgba(212,175,55,0.2);
+padding:30px 20px;
+}
+
+.admin-logo{
+font-size:20px;
+font-weight:800;
+margin-bottom:40px;
+color:#d4af37;
+}
+
+.admin-menu{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.admin-menu a{
+color:#ccc;
+text-decoration:none;
+font-size:14px;
+padding:10px;
+border-radius:8px;
+cursor:pointer;
+}
+
+.admin-menu a:hover{
+background:#111;
+color:#d4af37;
+}
+
+/* MAIN */
+
+.admin-main{
+flex:1;
+padding:30px;
+overflow:auto;
+}
+
+/* TOPBAR */
+
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:30px;
+}
+
+.topbar-title{
+font-size:24px;
+font-weight:700;
+}
+
+.admin-user{
+font-size:14px;
+color:#aaa;
+}
+
+/* STATS */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+margin-bottom:20px;
+}
+
+.stat-card{
+background:#0a0a0a;
+padding:20px;
+border-radius:12px;
+border:1px solid rgba(212,175,55,0.2);
+}
+
+.stat-card h4{
+font-size:13px;
+color:#999;
+margin-bottom:10px;
+}
+
+.stat-card strong{
+font-size:22px;
+color:#d4af37;
+}
+
+/* TABLES */
+
+.tables{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+margin-top:20px;
+}
+
+.table-card{
+background:#0a0a0a;
+padding:20px;
+border-radius:12px;
+border:1px solid rgba(212,175,55,0.2);
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:10px;
+}
+
+th,td{
+padding:10px;
+text-align:left;
+font-size:13px;
+border-bottom:1px solid #111;
+}
+
+th{
+color:#888;
+}
+
+td{
+color:#ddd;
+}
+
+/* ANALYTICS */
+
+.chart-card{
+background:#0a0a0a;
+padding:20px;
+border-radius:12px;
+border:1px solid rgba(212,175,55,0.2);
+}
+
+
+button{
+padding:8px 14px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
+
+.kyc-btn{
+margin-right:10px;
+font-weight:600;
+}
+
+.accept{
+background:#1e7e34;
+color:white;
+}
+
+.reject{
+background:#b02a37;
+color:white;
+}
+
+.pending{
+background:#b58900;
+color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<div class="admin-logo">
+Luxor Capital ADMIN
+</div>
+
+<nav class="admin-menu">
+
+<a onclick="openPage('dashboard')">🏠 Dashboard</a>
+<a onclick="openPage('analytics')">📊 Аналитика</a>
+<a onclick="openPage('users')">👥 Пользователи</a>
+<a>💰 Пополнения</a>
+<a>💸 Выводы</a>
+<a>📦 Продукты</a>
+<a onclick="openPage('kyc')">🪪 KYC</a>
+<a>🤝 Партнёры</a>
+<a>⚙ Настройки</a>
+<a href="support.html">💬 Support</a>
+
+</nav>
+
+</aside>
+
+
+
+<!-- MAIN -->
+
+<main class="admin-main">
+
+<!-- DASHBOARD -->
+
+<div id="dashboard-page">
+
+<div class="topbar">
+<div class="topbar-title">Dashboard</div>
+<div class="admin-user">Администратор</div>
+</div>
+
+<div class="stats">
+
+<div class="stat-card">
+<h4>Пополнения за день</h4>
+<strong>$2056</strong>
+</div>
+
+<div class="stat-card">
+<h4>Пополнения за неделю</h4>
+<strong>$4764</strong>
+</div>
+
+<div class="stat-card">
+<h4>Пополнения за месяц</h4>
+<strong>$697043</strong>
+</div>
+
+<div class="stat-card">
+<h4>Баланс системы</h4>
+<strong>$2190</strong>
+</div>
+
+</div>
+
+
+<div class="stats">
+
+<div class="stat-card">
+<h4>Всего пользователей</h4>
+<strong>4810</strong>
+</div>
+
+<div class="stat-card">
+<h4>С продуктами</h4>
+<strong>2282</strong>
+</div>
+
+<div class="stat-card">
+<h4>KYC Verified</h4>
+<strong>179</strong>
+</div>
+
+<div class="stat-card">
+<h4>Партнёры</h4>
+<strong>956</strong>
+</div>
+
+</div>
+
+
+<div class="tables">
+
+<div class="table-card">
+
+<h3>Top Investors</h3>
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Имя</th>
+<th>Инвестиции</th>
+</tr>
+
+<tr>
+<td>7204</td>
+<td>Руслан Р.</td>
+<td>$3876800</td>
+</tr>
+
+<tr>
+<td>9818</td>
+<td>Ильнур З.</td>
+<td>$2901020</td>
+</tr>
+
+<tr>
+<td>6673</td>
+<td>Олег Т.</td>
+<td>$2827560</td>
+</tr>
+
+</table>
+
+</div>
+
+
+<div class="table-card">
+
+<h3>Новые пользователи</h3>
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Email</th>
+<th>Дата</th>
+</tr>
+
+<tr>
+<td>10347</td>
+<td>user1@mail.com</td>
+<td>15.03.2026</td>
+</tr>
+
+<tr>
+<td>10411</td>
+<td>user2@mail.com</td>
+<td>15.03.2026</td>
+</tr>
+
+<tr>
+<td>10419</td>
+<td>user3@mail.com</td>
+<td>15.03.2026</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ANALYTICS -->
+
+<div id="analytics-page" style="display:none">
+
+<div class="topbar">
+<div class="topbar-title">Аналитика</div>
+</div>
+
+<div class="chart-card">
+
+<h3>Пополнения по дням</h3>
+<canvas id="depositsChart"></canvas>
+
+</div>
+
+</div>
+
+<!-- USERS -->
+
+<div id="users-page" style="display:none">
+
+<div class="topbar">
+<div class="topbar-title">Пользователи</div>
+</div>
+
+<input
+type="text"
+id="userSearch"
+placeholder="Поиск по ID или имени"
+style="width:300px;padding:10px;margin-bottom:20px;background:#000;border:1px solid #222;color:white;border-radius:8px"
+onkeyup="searchUsers()"
+>
+
+<div class="table-card">
+
+<table id="usersTable">
+
+<tr>
+<th>ID</th>
+<th>Имя</th>
+<th>Email</th>
+<th>Баланс</th>
+<th>KYC</th>
+</tr>
+
+<tr>
+<td>1001</td>
+<td>Иван Иванов</td>
+<td>ivan@mail.com</td>
+<td>$1200</td>
+<td>✅</td>
+</tr>
+
+<tr>
+<td>1002</td>
+<td>Руслан Р.</td>
+<td>ruslan@mail.com</td>
+<td>$560</td>
+<td>❌</td>
+</tr>
+
+<tr>
+<td>1003</td>
+<td>Олег Т.</td>
+<td>oleg@mail.com</td>
+<td>$8920</td>
+<td>✅</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+<!-- KYC LIST -->
+
+<div id="kyc-page" style="display:none">
+
+<div class="topbar">
+<div class="topbar-title">KYC Проверка</div>
+</div>
+
+<div class="table-card">
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Имя</th>
+<th>Фамилия</th>
+<th>Статус</th>
+<th></th>
+</tr>
+
+<tr>
+<td>1034</td>
+<td>Руслан</td>
+<td>Иванов</td>
+<td>Ожидает</td>
+<td>
+<button onclick="openKyc(1034,'Руслан','Иванов')">Проверить</button>
+</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+<!-- KYC REVIEW -->
+
+<div id="kycReview-page" style="display:none">
+
+<div class="topbar">
+<div class="topbar-title">Проверка документов</div>
+</div>
+
+<h3 id="kycName"></h3>
+
+<p>ID: <span id="kycID"></span></p>
+
+<div style="display:flex;gap:20px;margin-top:20px">
+
+<img src="https://via.placeholder.com/300x200" width="300">
+<img src="https://via.placeholder.com/300x200" width="300">
+
+</div>
+
+<div style="margin-top:25px">
+
+<button class="accept" onclick="kycStatus('Принято')">Принять</button>
+<button class="reject" onclick="kycStatus('Отклонено')">Отклонить</button>
+<button class="pending" onclick="kycStatus('В обработке')">В обработке</button>
+
+</div>
+
+</div>
+
+</main>
+
+</div>
+
+<script>
+
+/* PAGE SWITCH */
+
+function openPage(page){
+
+let pages=[
+'dashboard-page',
+'analytics-page',
+'users-page',
+'kyc-page',
+'kycReview-page'
+]
+
+pages.forEach(id=>{
+document.getElementById(id).style.display="none"
+})
+
+document.getElementById(page+"-page").style.display="block"
+
+}
+
+/* CHART */
+
+let ctx=document.getElementById('depositsChart')
+
+if(ctx){
+
+new Chart(ctx,{
+type:'line',
+data:{
+labels:['Пн','Вт','Ср','Чт','Пт','Сб','Вс'],
+datasets:[{
+label:'Пополнения $',
+data:[1200,2100,900,3200,2700,1800,3900],
+borderColor:'#d4af37',
+backgroundColor:'rgba(212,175,55,0.15)',
+fill:true,
+tension:0.4
+}]
+},
+options:{
+plugins:{legend:{labels:{color:'#fff'}}},
+scales:{
+x:{ticks:{color:'#aaa'},grid:{color:'#111'}},
+y:{ticks:{color:'#aaa'},grid:{color:'#111'}}
+}
+}
+})
+
+}
+
+/* USER SEARCH */
+
+function searchUsers(){
+
+let input=document.getElementById("userSearch").value.toUpperCase()
+let rows=document.querySelectorAll("#usersTable tr")
+
+rows.forEach((row,i)=>{
+
+if(i===0)return
+
+let id=row.children[0].innerText.toUpperCase()
+let name=row.children[1].innerText.toUpperCase()
+
+row.style.display=(id.includes(input)||name.includes(input))?"":"none"
+
+})
+
+}
+
+/* KYC */
+
+function openKyc(id,name,last){
+
+openPage('kycReview')
+
+document.getElementById("kycID").innerText=id
+document.getElementById("kycName").innerText=name+" "+last
+
+}
+
+function kycStatus(status){
+
+alert("Статус KYC: "+status)
+openPage('kyc')
+
+}
+
+</script>
+
+</body>
+</html>     
